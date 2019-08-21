@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div>
+        <h1>registered</h1>
+    </div>
+    <ul>
+        {% for student in students%}
+        <li>
+            {% for word in student %}
+                {{ word }}
+            {% endfor %}
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

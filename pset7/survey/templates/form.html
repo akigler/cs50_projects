@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <link rel="stylesheet" href="static/styles.css">
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+    <h1>jojo</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form class="needs-validation" action="/form" method="post" novalidate>
+
+        <!-- TODO -->
+        <div class="form-group">
+            <div class="col-md-6 mb-3">
+                <input type="text" class="form-control" placeholder="Your Name" name="name" required>
+                <div class="invalid-feedback">
+                    invalid email
+                </div>
+            </div>
+        <div class="col-md-2">
+            <select class="form-control col-xs-2" name="house_dropdown" required>
+                <option disabled="disabled">house</option>
+                <option value="griff">griff</option>
+                <option value="raven">raven</option>
+                <option value="huff">huiff</option>
+                <option value="slyther">slyther</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class ="form-check-input" type="radio" value="beater" name="position" id="beater" required>
+                <label class ="form-check-label" for="beater">beater</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="chaser" name="position" id="chaser" required>
+                <label class="form-check-label" for="chaser">chaser</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="keeper" name="position" id="keeper" required>
+                <label class="form-check-label" for="keeper">keeper</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" value="seeker" name="position" id="seeker" required>
+                <label class="form-check-label" for="seeker">seeker</label>
+                <div class="invalid-feedback">
+                    You need to select either a position
+                </div>
+            </div>
+        </div>
+
+            <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+            <div>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+
+       // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>
+
+{% endblock %}
